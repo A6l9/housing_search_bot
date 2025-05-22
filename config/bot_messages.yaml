@@ -1,0 +1,22 @@
+BOT_GREETINGS: |
+  Привет, я бот по поиску недвижимости, введи запрос в свободной форме и я помогу тебе найти тебе идеальную недвижимость 🏘.
+
+ERROR: |
+  Произошла ошибка, повторите попытку позже.
+
+OBJECT_INFO: |
+  Инфорамация об объекте:
+  Price: {price}
+  Type unit: {type_unit}
+  Purpose: {purpose}
+  Completion: {completion}
+  Handover data: {handover_date}
+  Furnishing: {furnishing}
+  Studio: {sutdio}
+  Sqft: {sqft}
+  Baths: {baths}
+  Beds: {beds}
+  View: {view}
+  Vacant: {vacant}
+  Area: {area}
+  Building: {building}
