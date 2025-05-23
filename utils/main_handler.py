@@ -31,21 +31,21 @@ def process_real_estate_query(natural_language_query):
         logger.info(message)
 
     if arguments:
-        purpose = arguments['purpose']
-        beds = arguments["bedroom_count"]
-        property_type = arguments['type']
-        area = arguments["area"]
-        building = arguments["building"]
-        view = arguments["view"]
-        price_min = arguments['min_price']
-        price_max = arguments['max_price']
-        baths = arguments['bath_count']
-        sqft_min = arguments['sqft']
+        purpose = arguments.get('purpose')
+        beds = arguments.get("bedroom_count")
+        property_type = arguments.get('type')
+        area = arguments.get("area")
+        building = arguments.get("building")
+        view = arguments.get("view")
+        price_min = arguments.get('min_price')
+        price_max = arguments.get('max_price')
+        baths = arguments.get('bath_count')
+        sqft_min = arguments.get('sqft')
         sqft_max = None
-        furnishing = arguments['furnishing']
-        completion = arguments['completion']
-        vacant = arguments['vacant']
-        handover_date = arguments['handover_date']
+        furnishing = arguments.get('furnishing')
+        completion = arguments.get('completion')
+        vacant = arguments.get('vacant')
+        handover_date = arguments.get('handover_date')
 
 
         logger.info(f"Поиск недвижимости с параметрами: purpose={purpose}, beds={beds}, "

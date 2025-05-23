@@ -5,18 +5,24 @@ ERROR: |
   Произошла ошибка, повторите попытку позже.
 
 OBJECT_INFO: |
-  Инфорамация об объекте:
-  Price: {price}
-  Type unit: {type_unit}
-  Purpose: {purpose}
-  Completion: {completion}
-  Handover data: {handover_date}
-  Furnishing: {furnishing}
-  Studio: {sutdio}
-  Sqft: {sqft}
-  Baths: {baths}
-  Beds: {beds}
-  View: {view}
-  Vacant: {vacant}
-  Area: {area}
-  Building: {building}
+  *Информация об объекте*:
+  *Price*: {price}
+  *Type unit*: {type_unit}
+  *Purpose*: {purpose}
+  *Completion*: {completion}
+  *Handover data*: {handover_date}
+  *Furnishing*: {furnishing}
+  *Studio*: {studio}
+  *Sqft*: {sqft}
+  *Baths*: {baths}
+  *Beds*: {beds}
+  *View*: {view}
+  *Vacant*: {vacant}
+  *Area*: {area}
+  *Building*: {building}
+
+LOADER_MESSAGE: |
+  Пожалуйста, подождите 🔄
+
+SELECT_OBJECT: |
+  Выберите объект 🏡👇
