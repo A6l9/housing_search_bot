@@ -26,3 +26,6 @@ LOADER_MESSAGE: |
 
 SELECT_OBJECT: |
   Выберите объект 🏡👇
+
+WHATSAPP_MESSAGE: |
+  Hello, {agent_name}, I want to buy your flat in {building}!

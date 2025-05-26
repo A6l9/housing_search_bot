@@ -73,7 +73,7 @@ def search_database(purpose=None, beds=None, property_type=None, area=None,
     SELECT 
         u.id, u.price, u.type_unit, u.purpose, u.completion, 
         u.handover_date, u.furnishing, u."Studio", u.sqft, 
-        u."Baths", u."Beds", u.view, u.vacant, 
+        u."Baths", u."Beds", u.view, u.vacant, ag.name as agent_name, ag.whatsapp as agent_whatsapp,
         b.name as building_name, a.original_name as area_name
     FROM 
         "Units" u
@@ -81,6 +81,8 @@ def search_database(purpose=None, beds=None, property_type=None, area=None,
         "Buildings" b ON u.building_id = b.id
     LEFT JOIN 
         "Areas" a ON u.area_id = a.id
+    LEFT JOIN
+        "Agents" ag on u.agent_id = ag.id
     WHERE 
         u.post_status != 'archived'
     """
@@ -248,6 +250,7 @@ if __name__ == "__main__":
     print(f"Найдено объектов: {len(properties)}")
 
     for prop in properties:
+        print(prop)
         print(f"ID: {prop['id']}, Цена: {prop['price']}, "
               f"Здание: {prop['building']}, Район: {prop['area']}")
     # areas = get_available_areas()

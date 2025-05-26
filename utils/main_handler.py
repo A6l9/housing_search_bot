@@ -3,13 +3,15 @@ from .gpt_handler import process_users_query
 from .other_utils import create_whatsapp_link, organize_by_building
 import logging
 
+from loader import bot, proj_settings
+
 # Настройка логирования
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 
-def process_real_estate_query(natural_language_query):
+async def process_real_estate_query(natural_language_query, user_id: int):
     """
     Основная функция для обработки запроса по недвижимости.
 
@@ -50,6 +52,10 @@ def process_real_estate_query(natural_language_query):
 
         logger.info(f"Поиск недвижимости с параметрами: purpose={purpose}, beds={beds}, "
                     f"type={property_type}, price_min={price_min}, price_max={price_max}")
+        
+        if proj_settings.debug_mode:
+            await bot.send_message(chat_id=user_id, text=f"Поиск недвижимости с параметрами: purpose={purpose}, beds={beds}, "
+                                                        f"type={property_type}, price_min={price_min}, price_max={price_max}")
 
         # Шаг 2: Поиск с исходными параметрами
         original_results = search_database(
@@ -80,6 +86,7 @@ def process_real_estate_query(natural_language_query):
             }
 
         logger.info("Не найдено объектов по исходным параметрам, увеличиваем цену на 20%")
+        await bot.send_message(chat_id=user_id, text="Не найдено объектов по исходным параметрам, увеличиваем цену на 20%")
 
         # Шаг 3: Если нет результатов, увеличиваем цену на 20% и ищем снова
         if price_max:
@@ -115,6 +122,7 @@ def process_real_estate_query(natural_language_query):
                 }
 
         logger.info("Не найдено объектов даже с увеличенной ценой")
+        await bot.send_message(chat_id=user_id, text="Не найдено объектов даже с увеличенной ценой")
 
         # Шаг 4: Если все еще нет результатов и изначально искали для покупки,
         # проверяем варианты аренды

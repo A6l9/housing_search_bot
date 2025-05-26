@@ -76,6 +76,8 @@ def organize_by_building(properties):
             'beds': prop.get('Beds'),
             'view': prop.get('view'),
             'vacant': prop.get('vacant'),
+            'agent_name': prop.get('agent_name'),
+            'agent_whatsapp': prop.get('agent_whatsapp'),
             'area': prop.get('area'),
             'building': building_name
         }

@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 
 async def main() -> None:
     await bot.delete_my_commands(scope=BotCommandScopeDefault())
+    await bot.delete_webhook()
     await set_commands()
     dp.include_router(start_router)
     bot_info = await bot.get_me()
