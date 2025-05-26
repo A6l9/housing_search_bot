@@ -2,7 +2,7 @@ from openai import OpenAI
 import json
 
 def process_users_query(query, areas, buildings):
-    client = OpenAI(api_key = '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')
+    client = OpenAI(api_key = 'TOKEN')
 
     tools = [{
         "type": "function",
